@@ -1,8 +1,10 @@
-#Movie Watchlist
+# Movie Watchlist
 
 To install:
-run npm install
+
+> npm install
 
 To test:
-run npm run dev
-dev server will launch on localhost:8000
+
+> npm run dev
+> dev server will launch on localhost:8000
