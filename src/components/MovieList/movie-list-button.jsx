@@ -8,6 +8,10 @@ const Button = styled.button`
     border-radius: 4px;
     margin: 1em;
     padding: 0.5em 1em;
+
+    &.remove {
+        background-color: red;
+    }
 `;
 
 export class MovieListButton extends Component {
@@ -38,6 +42,18 @@ export class MovieListButton extends Component {
         this.setState({ inMovielist: true });
     };
 
+    RemoveFromMovieList = data => {
+        // Check local storage if movie is in list
+        let MovieList = JSON.parse(localStorage.MovieList);
+        MovieList = MovieList.filter(x => x.imdbID !== data.imdbID);
+
+        // Replace movie list with one exluding removed movie
+        localStorage.setItem("MovieList", JSON.stringify(MovieList));
+
+        // Remove remove Button
+        this.setState({ inMovielist: false });
+    };
+
     render() {
         const { data, inMovielist } = this.state;
         if (!inMovielist) {
@@ -50,7 +66,15 @@ export class MovieListButton extends Component {
                 </Button>
             );
         }
-        return null;
+        return (
+            <Button
+                className="remove"
+                onClick={this.RemoveFromMovieList.bind(this, data)}
+                movie={data}
+            >
+                Remove from movie list
+            </Button>
+        );
     }
 }
 

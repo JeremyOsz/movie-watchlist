@@ -3,6 +3,7 @@ import styled from "styled-components";
 import WishlistButton from "../MovieList/movie-list-button";
 
 const CardTemplate = styled.li`
+    background-color: #efefef;
     border: 2px solid #e7e7e7;
     border-radius: 4px;
     padding: 0.5rem;
