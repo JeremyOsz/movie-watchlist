@@ -15,6 +15,10 @@ const NavBarTemplate = styled.div`
         width: 100%;
         padding: 0.5em;
         font-size: 1.5em;
+        cursor: pointer;
+        &:hover {
+            border-bottom: lightblue 2px solid;
+        }
         &.selected {
             border-bottom: 1px solid lightblue;
             font-weight: 600;
