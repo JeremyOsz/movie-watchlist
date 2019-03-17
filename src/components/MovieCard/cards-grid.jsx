@@ -12,11 +12,15 @@ const Cards = ({ data, deleteOnRemove }) => {
     return (
         <CardsGrid id="CardsGrid">
             {data.map(movieInfo => {
-                const MovieList = JSON.parse(localStorage.MovieList);
+                console.log(localStorage.MovieList);
+                const MovieList = localStorage.MovieList
+                    ? JSON.parse(localStorage.MovieList)
+                    : null;
 
-                const inMovieList =
-                    MovieList.filter(x => x.imdbID == movieInfo.imdbID).length >
-                    0;
+                const inMovieList = MovieList
+                    ? MovieList.filter(x => x.imdbID == movieInfo.imdbID)
+                        .length > 0
+                    : false;
 
                 console.log(inMovieList);
                 return (

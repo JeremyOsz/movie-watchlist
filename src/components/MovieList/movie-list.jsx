@@ -15,21 +15,21 @@ const Button = styled.button`
     }
 `;
 
+const getMovieList = () => {
+    return localStorage.MovieList ? JSON.parse(localStorage.MovieList) : null;
+};
+
 export class MovieList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: JSON.parse(localStorage.MovieList)
+            list: getMovieList()
         };
     }
 
     render() {
         return (
-            <ResultsGrid
-                id="Results"
-                data={this.state.list}
-                deleteOnRemove
-            />
+            <ResultsGrid id="Results" data={this.state.list} deleteOnRemove />
         );
     }
 }
