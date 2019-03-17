@@ -1,22 +1,17 @@
 {
-    "presets": [
-        "react",
-        "stage-2",
-        [
-            "env",
-            {
-                "targets": {
-                    "browsers": "last 2 versions"
-                },
-                "loose": true,
-                "modules": false
-            }
-        ]
-    ],
-    "plugins": ["transform-class-properties", "transform-object-rest-spread"],
-    "env": {
-        "test": {
-            "plugins": ["transform-es2015-modules-commonjs"]
-        }
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/transform-runtime",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
     }
+  }
 }
