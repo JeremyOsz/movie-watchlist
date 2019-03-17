@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export default styled.ul`
-    min-height: 700px;
     width: 100%;
-    min-height: 700px;
+    min-height: 600px;
     width: 100%;
     padding: 0;
     margin: auto;

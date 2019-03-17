@@ -17,12 +17,11 @@ const Button = styled.button`
 export class MovieListButton extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data: this.props.data,
+            inMovielist: this.props.inMovielist
+        };
     }
-
-    state = {
-        data: this.props.data,
-        inMovielist: false
-    };
 
     AddToMovieList = data => {
         // If Movie List Exists in Local Storage load, else create
@@ -52,15 +51,19 @@ export class MovieListButton extends Component {
 
         // Remove remove Button
         this.setState({ inMovielist: false });
+        if (this.props.deleteOnRemove) {
+            console.log(this.props.deleteOnRemove("hi"));
+        }
     };
 
     render() {
-        const { data, inMovielist } = this.state;
-        if (!inMovielist) {
+        // const { data, inMovielist } = this.state;
+
+        if (!this.state.inMovielist) {
             return (
                 <Button
-                    onClick={this.AddToMovieList.bind(this, data)}
-                    movie={data}
+                    onClick={this.AddToMovieList.bind(this, this.state.data)}
+                    movie={this.state.data}
                 >
                     Add to movie list
                 </Button>
@@ -69,8 +72,8 @@ export class MovieListButton extends Component {
         return (
             <Button
                 className="remove"
-                onClick={this.RemoveFromMovieList.bind(this, data)}
-                movie={data}
+                onClick={this.RemoveFromMovieList.bind(this, this.state.data)}
+                movie={this.state.data}
             >
                 Remove from movie list
             </Button>
