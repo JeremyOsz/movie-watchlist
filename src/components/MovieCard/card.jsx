@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import WishlistButton from "../MovieList/movie-list-button";
 
 const CardTemplate = styled.li`
     border: 2px solid #e7e7e7;
@@ -13,12 +14,15 @@ const CardTemplate = styled.li`
     }
 `;
 
-const Card = ({ data }) => (
-    <CardTemplate>
-        <h1>{data.Title}</h1>
-        <h2>{data.Year}</h2>
-        <img className="poster" src={data.Poster} />
-    </CardTemplate>
-);
+const Card = ({ data, inWishlist }) => {
+    return (
+        <CardTemplate>
+            <h1>{data.Title}</h1>
+            <h2>{data.Year}</h2>
+            <WishlistButton inWishlist={inWishlist} data={data} />
+            <img className="poster" src={data.Poster} />
+        </CardTemplate>
+    );
+};
 
 export default Card;
