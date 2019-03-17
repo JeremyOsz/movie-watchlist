@@ -7,4 +7,5 @@ To install:
 To test:
 
 > npm run dev
-> dev server will launch on localhost:8000
+
+dev server will launch on localhost:8000
